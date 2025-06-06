@@ -35,7 +35,6 @@ let add_dynamic_cmis dcs =
 
     let fetch =
       (fun filename ->
-        let open Option.Infix in
         let url = Filename.concat dcs.Protocol.dcs_url filename in
         sync_get url)
     in
