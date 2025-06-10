@@ -15,7 +15,7 @@ let () =
   let stdlib = Filename.concat cwd "stdlib" in
   let out = open_out "static_files.ml" in
 
-  Printf.fprintf out "open Protocol\nlet stdlib_cmis = [";
+  Printf.fprintf out "let stdlib_cmis = [";
   let dir = Unix.opendir stdlib in
   iter_cmi ~f:(fun file ->
     let fullpath = Filename.concat stdlib file in
