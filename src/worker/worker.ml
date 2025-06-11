@@ -14,7 +14,7 @@ let sync_get url =
         Js.Opt.case
           (File.CoerceTo.arrayBuffer x##.response)
           (fun () ->
-            Firebug.console##log (Js.string "Failed to receive file");
+            Console.console##log (Js.string "Failed to receive file");
             None)
           (fun b -> Some (Typed_array.String.of_arrayBuffer b))
     | _ -> None
@@ -36,7 +36,6 @@ let add_dynamic_cmis dcs =
 
     let fetch =
       (fun filename ->
-        let open Option.Infix in
         let url = Filename.concat dcs.Protocol.dcs_url filename in
         sync_get url)
     in
